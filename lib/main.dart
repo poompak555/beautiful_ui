@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/basic.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'dart:html' as html;
 
 void main() {
   runApp(MyApp());
@@ -107,7 +108,8 @@ class _ButtonSectionState extends State<ButtonSection> {
   }
   void _ShowRoute() {
     setState(() {
-      EasyLoading.showSuccess('Route Success');
+      EasyLoading.showSuccess('เ ก เ ร');
+      html.window.open('https://www.youtube.com/watch?v=TZ8bK8z_ZB0', 'gayray');
     });
   }
   void _ShowShare() {
