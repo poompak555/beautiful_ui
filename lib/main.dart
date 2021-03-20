@@ -52,10 +52,21 @@ class TitleSection extends StatefulWidget {
 
 class _TitleSectionState extends State<TitleSection> {
   double _count = 2.5;
+  bool _isCheck = true;
 
   void _incrementCounter() {
     setState(() {
-      _count = _count + 0.5;
+      if(_isCheck){
+        _count -= 0.1;
+        _isCheck = false;
+        EasyLoading.showSuccess('DisLike Success');
+      }
+      else{
+          _count += 0.1;
+        _isCheck = true;
+        EasyLoading.showSuccess('Like Success');
+
+      }
     });
   }
 
@@ -79,10 +90,10 @@ class _TitleSectionState extends State<TitleSection> {
         ),
         Row(
           children: [
-            IconButton(
-              icon: const Icon(Icons.star, color: Colors.red),
-              onPressed: _incrementCounter,
-            ),
+            IconButton(icon: (_isCheck ? Icon(Icons.star) : Icon(Icons.star_border)),
+            color: Colors.red,
+            onPressed: _incrementCounter,
+            ), 
             Text('$_count'),
           ],
         )
